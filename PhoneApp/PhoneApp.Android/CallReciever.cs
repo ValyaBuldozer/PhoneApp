@@ -25,7 +25,7 @@ namespace PhoneApp.Droid
     {
         public override void OnReceive(Context context, Intent intent)
         {
-            // ensure there is information
+            //ensure there is information
             if (intent.Extras != null)
             {
                 // get the incoming call state
