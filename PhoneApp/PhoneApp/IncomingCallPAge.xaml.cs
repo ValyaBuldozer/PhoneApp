@@ -12,17 +12,21 @@ namespace PhoneApp
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class IncomingCallPAge : ContentPage
     {
+        ICallHandler callReciever = DependencyService.Get<ICallHandler>();
+
         public IncomingCallPAge()
         {
             InitializeComponent();
 
-            var callReciever = DependencyService.Get<ICallHandler>();
 
-            callReciever.CallEvent += (s, e) => {
-                telephone_Label.BackgroundColor = Color.Red;
-                telephone_Label.Text = callReciever.CallInfo;
-            };
+            callReciever.CallEvent += CallEventHandler;
 
+        }
+
+        private void CallEventHandler (object sender,EventArgs e)
+        {
+            telephone_Label.BackgroundColor = Color.Red;
+            telephone_Label.Text = callReciever.CallInfo;
         }
     }
 }

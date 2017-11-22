@@ -10,7 +10,7 @@ namespace PhoneApp
 {
     public interface ICallHandler
     {
-         event EventHandler CallEvent;
+         event EventHandler<EventArgs> CallEvent;
         string CallInfo { get; set; }
     }
        

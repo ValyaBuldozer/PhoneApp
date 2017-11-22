@@ -41,7 +41,7 @@ namespace PhoneApp.Droid
                         telephone = string.Empty;
 
                     CallInfo = telephone;
-                    CallEvent(this, new EventArgs());
+                    CallEventRun(new EventArgs());
                 }
                 else if (state == TelephonyManager.ExtraStateOffhook)
                 {
@@ -54,7 +54,13 @@ namespace PhoneApp.Droid
             }
         }
 
-        public event EventHandler CallEvent = (s,e) => { };
+        public event EventHandler<EventArgs> CallEvent;
+
+        public void CallEventRun(EventArgs e)
+        {
+            EventHandler<EventArgs> handler = CallEvent;
+            handler(this, e);
+        }
 
         public string CallInfo { get; set; }
     }
