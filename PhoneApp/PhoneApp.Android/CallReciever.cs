@@ -40,9 +40,9 @@ namespace PhoneApp.Droid
                     if (string.IsNullOrEmpty(telephone))
                         telephone = string.Empty;
 
-                    CallInfo = telephone;
+                    Tlp = telephone;
                     CallEvent = (s, e) => { };
-                    CallEvent(this, new EventArgs());
+                    CallEvent.Invoke(this, new EventArgs());
                 }
                 else if (state == TelephonyManager.ExtraStateOffhook)
                 {
@@ -55,6 +55,8 @@ namespace PhoneApp.Droid
             }
         }
 
+        public static string Tlp;
+
         public event EventHandler CallEvent;
 
         public void CallEventRun()
@@ -63,6 +65,6 @@ namespace PhoneApp.Droid
             handler(this,null);
         }
 
-        public string CallInfo { get; set; }
+         public string CallInfo { get { return Tlp; } set { } }
     }
 }

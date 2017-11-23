@@ -11,7 +11,7 @@ namespace PhoneApp
     public interface ICallHandler
     {
          event EventHandler CallEvent;
-        string CallInfo { get; set; }
+         string CallInfo { get; set; }
     }
        
 }

@@ -7,6 +7,12 @@
             <Label x:Name="telephone_Label"
                    BackgroundColor="Green"
                    Text="nothing"/>
+            
+            <Button x:Name="but_test"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="CenterAndExpand"
+                    Text="number"
+                    Clicked="but_test_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
